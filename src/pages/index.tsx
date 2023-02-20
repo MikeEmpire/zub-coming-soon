@@ -3,23 +3,27 @@ import type { HeadFC, PageProps } from "gatsby";
 
 const pageStyles = {
   color: "#232129",
-  padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
 
+import "../styles/main.css";
+
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <main style={pageStyles}>
-      <section>
-        <header>P Trains BBQ</header>
-        <h6>Coming Soon</h6>
+    <main id="page__container" style={pageStyles}>
+      <section className="page__overlay">
+        <nav></nav>
+        <section>
+          <header className="">P Trains BBQ</header>
+          <h6 className="">Coming Soon</h6>
+        </section>
+        <article>
+          <p>
+            Be the first to know when we launch, so you can receive professional
+            guidance on receiving a world class catering experience!
+          </p>
+        </article>
       </section>
-      <article>
-        <p>
-          Be the first to know when we launch, so you can receive professional
-          guidance on receiving a world class catering experience!
-        </p>
-      </article>
     </main>
   );
 };
