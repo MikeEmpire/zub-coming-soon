@@ -12,10 +12,9 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <main id="page__container" style={pageStyles}>
       <section className="page__overlay">
-        <nav></nav>
-        <section>
-          <header className="">P Trains BBQ</header>
-          <h6 className="">Coming Soon</h6>
+        <section className="header__container">
+          <header>P Trains BBQ</header>
+          <h6>Coming Soon</h6>
         </section>
         <article>
           <p>
