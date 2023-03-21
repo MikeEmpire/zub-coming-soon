@@ -17,10 +17,7 @@ const IndexPage: React.FC<PageProps> = () => {
           <h6>Coming Soon</h6>
         </section>
         <article>
-          <p>
-            Be the first to know when we launch, so you can receive professional
-            guidance on receiving a world class catering experience!
-          </p>
+         
         </article>
       </section>
     </main>
