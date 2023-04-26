@@ -11,6 +11,7 @@ import "../styles/main.css";
 
 const IndexPage: React.FC<PageProps> = () => {
   const [email, setEmail] = React.useState<string>("");
+  const [subscribeMsg, setSubscribeMsg] = React.useState<string>("Subscribe");
   const handleEmailInput = (e: React.ChangeEvent<HTMLInputElement>) =>
     setEmail(e.target.value);
 
@@ -22,9 +23,11 @@ const IndexPage: React.FC<PageProps> = () => {
       console.log("Error");
       return;
     }
+    setSubscribeMsg("Subscribed!");
     console.log("Success");
   };
 
+  const isSubscribed = subscribeMsg !== "Subscribe";
   return (
     <main id="page__container" style={pageStyles}>
       <section className="page__overlay">
@@ -37,16 +40,22 @@ const IndexPage: React.FC<PageProps> = () => {
             Be the first to know when we launch, so you can receive professional
             guidance on receiving a world class catering experience!
           </p>
-          <span className="input">
-            <input
-              onChange={handleEmailInput}
-              value={email}
-              type="text"
-              placeholder="Subscribe to newsletter!"
-            />
-            <span></span>
-          </span>
-          {email.length > 2 && <button onClick={handleSubmit}>Submit</button>}
+          {!isSubscribed && (
+            <span className="input">
+              <input
+                onChange={handleEmailInput}
+                value={email}
+                type="text"
+                placeholder="Subscribe to newsletter!"
+              />
+              <span></span>
+            </span>
+          )}
+          {email.length > 2 && (
+            <button disabled={isSubscribed} onClick={handleSubmit}>
+              {subscribeMsg}
+            </button>
+          )}
         </article>
       </section>
     </main>
